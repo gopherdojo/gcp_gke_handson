@@ -40,21 +40,15 @@ CMD ["/hellotime"]
 
 ```
 steps:
-  - name: 'gcr.io/cloud-builders/go'
-    args: ['test', './...']
-    env: ['PROJECT_ROOT=github.com/sinmetal/hellotime']
-  - name: 'gcr.io/cloud-builders/go'
-    args: ['install', '-a', '-ldflags', '-s', '-installsuffix', 'cgo', 'github.com/sinmetal/hellotime']
-    env: [
-      'PROJECT_ROOT=github.com/sinmetal/hellotime',
-      'CGO_ENABLED=0',
-      'GOOS=linux'
-    ]
+  - name: 'golang:1.11.1-stretch'
+    entrypoint: 'go'
+    args: ['build', '.']
+    env: ['GO111MODULE=on']
   - name: 'gcr.io/cloud-builders/docker'
     args: ['build', '--tag=gcr.io/$PROJECT_ID/sinmetal/hellotime:v1.0.0', '.']
   - name: 'gcr.io/cloud-builders/docker'
     args: ["push", "gcr.io/$PROJECT_ID/sinmetal/hellotime:v1.0.0"]
-
+images: ['gcr.io/$PROJECT_ID/sinmetal/hellotime:v1.0.0']
 ```
 
 ## Cloud Buildの実行
