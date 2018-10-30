@@ -1,6 +1,20 @@
-# GKEにDeploymentを作ろう
+# GKEにFrontend用のDeploymentを作ろう
 
-Replicaを1つ作成するシンプルなDeploymentを作成します。
+## 操作するGKE Clusterを設定
+
+`gcloud container clusters get-credentials` で操作するGKE Clusterを指定します。
+
+```
+gcloud container clusters get-credentials handson-cluster --zone us-central1-a --project {your project id}
+```
+
+## Deploymentを作成
+
+### yamlを作成
+
+hellotime container imageをPodとして持つReplicaを1つ宣言するシンプルなDeploymentを作成します。
+{your GCR image path} のところをPart2で作成したcontainer imageのpathに差し替えてください。
+例えば `gcr.io/souzoh-demo-gcp-001/sinmetal/hellotime/manual:v1.0.0` のような値です。
 
 ``` hellotime-deployment.yaml
 apiVersion: extensions/v1beta1
@@ -21,9 +35,7 @@ spec:
         name: hellotime-node
 ```
 
-```
-gcloud container clusters get-credentials cluster-1 --zone us-central1-a --project {your project id}
-```
+### yamlの適用
 
 `kubectl apply` を利用して、作成したdeploymentを適用します。
 
@@ -42,9 +54,10 @@ hellotime-node-5d56d45ddc-2lnf7   1/1       Running   0          3m
 ```
 
 STATUSがRunningになったら、Podのログを確認して、Hello {Time} が出力されているかを確認しましょう。
+`hellotime-node-5d56d45ddc-2lnf7` を自分のPodの名前に置き換えて実行してください。
 
 ```
-kubectl logs hellotime-node-5d56d45ddc-2lnf7
+kubectl logs -f hellotime-node-5d56d45ddc-2lnf7
 
 Hello 2018-10-18 11:18:01.00845593 +0000 UTC m=+0.000262575
 Hello 2018-10-18 11:18:06.009404119 +0000 UTC m=+5.001210752
