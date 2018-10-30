@@ -6,7 +6,7 @@
 
 GKE上にFrontendとBackendの2つのアプリケーションをDeployし、通信を行う。
 
-![Goal](https://github.com/sinmetal/gke_handson/blob/master/goal.png)
+![Goal](https://github.com/sinmetal/gke_handson/blob/master/resources/goal.png)
 
 ### GCP Resources
 
@@ -18,7 +18,7 @@ GKE上にFrontendとBackendの2つのアプリケーションをDeployし、通�
 
 ### Part1 Clusterを作成
 
-ハンズオンでGKEのClusterを作成します。
+ハンズオンで利用するGKEのClusterを作成します。
 
 ### Part2 Goのバイナリを内包したContainer Imageの作成
 
@@ -31,3 +31,7 @@ Frontend用のDeploymentを作成して、GKE Cluster上で動かします。
 ### Part4 Backend用のDeployment, Serviceを作成
 
 Backend用のDeploymentとServiceを作成して、GKE Cluster上で動かします。
+
+### Part5 後片付け
+
+ハンズオンで作成したResourceを削除します。
