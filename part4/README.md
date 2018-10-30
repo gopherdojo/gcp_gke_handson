@@ -1,11 +1,13 @@
-# GKEにBackend用のDeploymentを作ろう
+# GKEにBackend用のDeploymentを作成
 
-## Backend用のGoのバイナリを内包したContainer Imageを作ろう
+## Backend用のGoのバイナリを内包したContainer Imageを作成
+
+### sample codeの取得
 
 HTTP Requestを受け取り Hello Backend {Time}を返す、シンプルなアプリケーションです。
 
 ```
-git clone git@github.com:sinmetal/backendhellotime.git
+git clone git@github.com:gopherdojo/gcp_backendhellotime.git
 ```
 
 ```
@@ -175,7 +177,7 @@ ServiceはGKE内部のDNSを利用して、アクセスすることができる�
 
 `http://{resource-name}.{namespace}.svc.cluster.local`
 
-### hellotimeで、backendhellotimeを呼ぶようにする
+### hellotimeから、backendhellotimeを呼ぶ
 
 以下のようにhellotimeの中身を変えてみよう。
 

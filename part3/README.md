@@ -1,4 +1,4 @@
-# GKEにFrontend用のDeploymentを作ろう
+# GKEにFrontend用のDeploymentを作成
 
 ## 操作するGKE Clusterを設定
 
