@@ -28,7 +28,7 @@ gcloud projects add-iam-policy-binding {your project id} \
 
 作成したService Accountを指定して、GKE Clusterを作成する。
 ハンズオン用なので、お値段を抑えた小さめの構成で、かつ `--preemptible` を指定しているので、時折シャットダウンされたりする。
-GKEの場合は、シャットダウンされても、PodはReCreateしてくれるので、開発環境なら、 --preemptible` で2台のインスタンスを作っておくと、安く運用できる。
+GKEの場合は、シャットダウンされても、PodはReCreateしてくれるので、開発環境なら、 `--preemptible` で2台のインスタンスを作っておくと、安く運用できる。
 
 ```
 gcloud container clusters create "handson-cluster" --zone "us-central1-a" --username "admin" --cluster-version "1.10.7-gke.6" --machine-type "n1-standard-1" --image-type "COS" --disk-type "pd-standard" --disk-size "10" --preemptible --num-nodes "1" --service-account "{your service account}" --enable-cloud-logging --enable-cloud-monitoring --addons HorizontalPodAutoscaling,HttpLoadBalancing --no-enable-ip-alias --no-issue-client-certificate
