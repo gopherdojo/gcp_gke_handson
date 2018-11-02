@@ -32,6 +32,10 @@ Frontend用のDeploymentを作成して、GKE Cluster上で動かします。
 
 Backend用のDeploymentとServiceを作成して、GKE Cluster上で動かします。
 
-### Part5 後片付け
+### part5 Stackdriver Traceの追加
+
+Frontend, BackendにStackdriver Traceを追加します。
+
+### Part99 後片付け
 
 ハンズオンで作成したResourceを削除します。
